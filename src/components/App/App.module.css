@@ -1,0 +1,47 @@
+.app {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cash {
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 40px;
+    margin: 20px 0 10px;
+}
+
+.buttons {
+    width: 200px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.customers {
+    margin-top: 20px;
+}
+
+.button {
+    width: 200px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.list_item {
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
