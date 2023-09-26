@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from './App.module.css';
+import {cashSlice} from "../../Redux Toolkit/reducers/CashSlice";
 import {useDispatch, useSelector} from "react-redux";
-import {addCash, getCash} from "../../services/reducers/cashReducer";
-import {addCustomer, removeCustomer} from "../../services/reducers/customerReducer";
-import {fetchCustomers} from "../../services/actions/customerAction";
+import {customerSlice, fetchCustomers} from "../../Redux Toolkit/reducers/CustomerSlice";
 
 const App = () => {
 
-    const store = useSelector((store: any) => store.cash)
     const dispatch = useDispatch()
+    const {cash} = useSelector((state: any) => state.cash)
+    const {customers} = useSelector((state: any) => state.customers)
+    const {addCash, getCash}: any = cashSlice.actions
+    const {addCustomer, addManyCustomers, removeCustomer}: any = customerSlice.actions
+    console.log(customers)
     const addCashClick = () => {
         dispatch(addCash(5))
     }
@@ -27,8 +30,6 @@ const App = () => {
         dispatch(fetchCustomers())
     }
 
-    const customers = useSelector((store: any) => store.customers.customers)
-    console.log(customers)
     return (
         <div className={styles.app}>
             <div className={styles.buttons}>
@@ -45,7 +46,7 @@ const App = () => {
                     Убрать
                 </button>
             </div>
-            <p className={styles.text}>{store.cash}</p>
+            <p className={styles.text}>{cash}</p>
             <div className={styles.customers}>
                 <div className={styles.buttons}>
                     <button
@@ -66,6 +67,7 @@ const App = () => {
                         return (
                             <li
                                 className={styles.list_item}
+                                key={elem.id}
                                 onClick={() => {
                                     dispatch(removeCustomer(elem.id))
                                 }}>
