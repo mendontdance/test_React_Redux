@@ -10,7 +10,7 @@ const App = () => {
     const {cash} = useSelector((state: any) => state.cash)
     const {customers} = useSelector((state: any) => state.customers)
     const {addCash, getCash}: any = cashSlice.actions
-    const {addCustomer, addManyCustomers, removeCustomer}: any = customerSlice.actions
+    const {addCustomer, removeCustomer}: any = customerSlice.actions
     console.log(customers)
     const addCashClick = () => {
         dispatch(addCash(5))
